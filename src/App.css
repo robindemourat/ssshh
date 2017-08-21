@@ -1,0 +1,275 @@
+.App {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  font-family: Chewy, sans-serif;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  left: 0;
+  top: 0;
+  position: fixed;
+}
+
+.App-header{
+  background: black;
+  color: white;
+  min-height: 100%;
+  position: relative;
+}
+
+.App-header h2 {
+  position: absolute;
+  left: 0;
+  top: 45%;
+  width: 100%;
+  margin: 0;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  font-size: 7rem;
+}
+
+.App-header h3{
+  padding-bottom: 1rem;
+  position: absolute;
+  bottom: 1rem;
+  width: 100%;
+  text-align: center;
+  left: 0;
+}
+
+.App h1{
+  font-size: 4rem;
+  text-align: center;
+  margin-top: 0;
+}
+
+button{
+  background: inherit;
+  padding: 1rem;
+  text-transform: uppercase;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all .5s ease;
+}
+
+input{
+  transition: all .5s ease;
+  font-family: inherit;
+  background: inherit;
+  border: none;
+  font-size: 1.5rem;
+  outline: none;
+}
+
+input:focus{
+  background: black;
+  color:white;
+}
+
+button:hover,
+input:hover:not(:focus){
+  background: rgba(0,0,0,0.05);
+}
+
+.dropzone-container{
+  background: #99B6BD;
+}
+
+.dropzone-container > div {
+  width: 100%!important;
+  min-height: 25rem;
+  transition: all .5s ease;
+  cursor: pointer;
+}
+.dropzone-container > div:hover{
+  background: rgba(0,0,0,0.05);
+}
+
+.dropzone-container, .elements-wrapper{
+  padding : 2rem;
+  padding-top: 5rem;
+  min-height: 100%;
+  margin: 0;
+}
+
+.dropzone-container h3{
+  position: relative;
+  top: 50%;
+  text-align: center;
+  font-style: italic;
+}
+
+.dropzone-container button{
+  display: block;
+  margin-top: 1rem;
+  text-align : center;
+  width: 100%;
+  border: 1px solid black;
+  font-size: 1.5rem;
+}
+
+.elements-wrapper {
+  font-size: large;
+  text-align: left;
+  background: #CAC3B2;
+}
+
+.elements-container {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+
+.sound-element {
+  padding: 2rem;
+  background: #B3A86A;
+  flex: 1;
+  min-width: 20%;
+  transition: all .5s ease;
+}
+
+.sound-element .title h2{
+  display: flex;
+  border-bottom: 1px solid black;
+  flex-flow: row nowrap;
+}
+
+.sound-element .title input{
+  flex: 1;
+}
+
+.sound-element .settings {
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid black;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.sound-element .repeat-details{
+  padding-top: 1rem;
+  margin-top: 1rem;
+  border-top: 1px solid black;
+}
+/**
+ * Player styling
+ */
+
+.slider {
+    width: 100%;
+    height: 50px;
+    border: 1px solid grey;
+    background: lightblue;
+}
+
+.bar,
+.handle{
+  height: 100%;
+  background: inherit;
+}
+
+.handle {
+    font-size: 0.9em;
+    text-align: center;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+.handle.active {
+    background-color: grey;
+}
+.bar {
+    position: relative;
+}
+
+.bar-0{
+  background: white;
+}
+
+.bar-1{
+  background: inherit;
+}
+
+
+/**
+ * Header animation
+ */
+
+.smoky span {
+  display: inline-block;
+  text-shadow: 0 0 0 whitesmoke;
+  animation: smoky 10s 6s both;
+}
+
+.smoky span:nth-child(even){
+  animation-name: smoky-mirror;
+}
+
+@keyframes smoky {
+  30% {
+    text-shadow: 0 0 40px whitesmoke;
+  }
+  60% {
+    transform:
+      translate3d(15rem,-8rem,0)
+      rotate(-40deg)
+      skewX(70deg)
+      scale(1.5);
+    text-shadow: 0 0 20px whitesmoke;
+    opacity: 0;
+  }
+  90% {
+    transform:
+      translate3d(15rem,-8rem,0)
+      rotate(-40deg)
+      skewX(70deg)
+      scale(1.5);
+    text-shadow: 0 0 20px whitesmoke;
+    opacity: 0;
+  }
+  to {
+    transform:
+      translate3d(0,0,0)
+      rotate(0deg)
+      skewX(0deg)
+      scale(1);
+    text-shadow: 0 0 20px whitesmoke;
+    opacity: 1;
+  }
+}
+
+@keyframes smoky-mirror {
+  60% {
+    text-shadow: 0 0 40px whitesmoke; }
+  to {
+    transform:
+      translate3d(18rem,-8rem,0)
+      rotate(-40deg) 
+      skewX(-70deg)
+      scale(2);
+     text-shadow: 0 0 20px whitesmoke;
+    opacity: 0;
+  }
+}
+
+span:nth-of-type(1){ 
+  animation-delay: 3.1s; 
+}
+span:nth-of-type(2){ 
+  animation-delay: 3.2s; 
+}
+span:nth-of-type(3){ 
+  animation-delay: 3.3s; 
+}
+span:nth-of-type(4){ 
+  animation-delay: 3.4s; 
+}
+span:nth-of-type(5){ 
+  animation-delay: 3.5s; 
+}
+span:nth-of-type(6){ 
+  animation-delay: 3.6s; 
+}

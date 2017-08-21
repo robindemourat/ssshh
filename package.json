@@ -1,0 +1,23 @@
+{
+  "name": "cthulhu-ambiances",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "d3-dsv": "^1.0.5",
+    "react": "^15.6.1",
+    "react-audio-player": "^0.6.1",
+    "react-dom": "^15.6.1",
+    "react-dropzone": "^4.1.0",
+    "react-h5-audio-player": "^0.2.5",
+    "react-scripts": "1.0.11",
+    "react-slider": "^0.8.0",
+    "uuid": "^3.1.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build; echo \"ssshhh.surge.sh\" > build/CNAME",
+    "deploy": "npm run build; cd build;surge; cd ..",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
