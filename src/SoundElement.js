@@ -37,14 +37,14 @@ export default class SoundElement extends Component {
 
   onPause = () => {
     this.setState({isPlaying: false});
-    if (this.state.repeatMode && this.timeOut) {
+    if (this.props.repeatMode && this.timeOut) {
       clearTimeout(this.timeOut);
       this.timeOut = null;
     }
   }
 
   toggleRepeatMode = () => {
-    if (this.state.repeatMode && this.timeOut) {
+    if (this.props.repeatMode && this.timeOut) {
       clearTimeout(this.timeOut);
       this.timeOut = null;
     }
@@ -56,15 +56,15 @@ export default class SoundElement extends Component {
   }
 
   onEnded = () => {
-    if (this.state.randomRepeat) {
-      const waitFor = Math.random() * 1000 * this.state.randomSpan;
-      console.info(this.state.title, ' wait for ', waitFor / 1000, ' sec')
+    if (this.props.randomRepeat) {
+      const waitFor = Math.random() * 1000 * this.props.randomSpan;
+      console.info(this.props.title, ' wait for ', waitFor / 1000, ' sec')
       this.timeOut = setTimeout(() => {
-        console.info(this.state.title, ' replaying after timeout')
+        console.info(this.props.title, ' replaying after timeout')
         this.el.audio.play();
         this.setState({isPlaying: true});
       }, waitFor)
-    } else if (this.state.repeatMode) {
+    } else if (this.props.repeatMode) {
       this.el.audio.play();
       this.setState({isPlaying: true});
     }
@@ -72,7 +72,7 @@ export default class SoundElement extends Component {
 
   onRandomSpanChange = (e) => {
     const displayedRandomSpan = e.target.value;
-    let randomSpan = this.state.randomSpan;
+    let randomSpan = this.props.randomSpan;
     let toChange;
     if (!isNaN(+displayedRandomSpan)) {
       randomSpan = +displayedRandomSpan;
