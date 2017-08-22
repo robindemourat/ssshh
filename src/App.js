@@ -50,19 +50,17 @@ class App extends Component {
   }
 
   deleteElement = id => {
-    console.log('delete ', id);
-    const elements = this.state.elements;
+    let elements = this.state.elements;
     let element;
     elements.some((el, index) => {
       if (el.id === id) {
-        console.log('found');
         element = el;
-        delete elements[index];
+        elements = [...elements.slice(0, index), ...elements.slice(index + 1)]
         return true;
       }
       return false;
     });
-    this.setState(elements);
+    this.setState({elements});
     const db = this.db.result;
     // console.log('db is a success', db);
 
@@ -72,7 +70,7 @@ class App extends Component {
   }
 
   onDrop = (files) => {
-    console.info('on drop', files);
+    // console.info('on drop', files);
     files.forEach(file => {
       const {
         name,
